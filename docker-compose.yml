@@ -20,7 +20,7 @@ services:
     logging: *default-logging
 
   mysql:
-    image: mysql:8
+    image: mysql
     # Only the variables MySQL needs are passed in (from .env via interpolation),
     # so the bot token never ends up in the database container's environment.
     environment:
