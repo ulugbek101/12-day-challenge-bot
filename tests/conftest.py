@@ -156,7 +156,7 @@ async def app(_wired, session_factory) -> AsyncIterator[App]:  # noqa: ANN001
     tg.clear_failures()
     tg.bot_is_admin = True
     collector.records.clear()
-    debounce._last.clear()
+    debounce.reset()
     application = App(dp=dp, bot=bot, tg=tg, session_factory=session_factory, errors=collector)
     yield application
     unexpected = [r for r in collector.records if r.exc_info]
