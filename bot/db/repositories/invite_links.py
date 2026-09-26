@@ -93,29 +93,6 @@ async def mark_send_result(
     invite.send_error = None if success else error
 
 
-async def list_due_for_reminder(session: AsyncSession, *, within_hours: int) -> list[InviteLink]:
-    """Active, unused, non-revoked links expiring within `within_hours` with no reminder sent yet."""
-    now = utcnow()
-    from datetime import timedelta
-
-    horizon = now + timedelta(hours=within_hours)
-    stmt = select(InviteLink).where(
-        InviteLink.reminded_at.is_(None),
-        InviteLink.revoked_at.is_(None),
-        InviteLink.used_at.is_(None),
-        InviteLink.expires_at > now,
-        InviteLink.expires_at <= horizon,
-    )
-    return list((await session.execute(stmt)).scalars().all())
-
-
-async def mark_reminded(session: AsyncSession, invite_id: int) -> None:
-    invite = await session.get(InviteLink, invite_id)
-    if invite is None:
-        return
-    invite.reminded_at = utcnow()
-
-
 async def list_newly_expired(session: AsyncSession) -> list[InviteLink]:
     """Links past expiry, never used/revoked, not yet flagged as expired-notified."""
     now = utcnow()

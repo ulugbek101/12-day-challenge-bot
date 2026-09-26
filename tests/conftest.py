@@ -30,6 +30,8 @@ TEST_DATABASE_URL = os.environ.get(
 async def engine() -> AsyncIterator[AsyncEngine]:
     eng = create_engine(TEST_DATABASE_URL)
     async with eng.begin() as conn:
+        # Rebuild from scratch so the test schema always matches the current models.
+        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
     yield eng
     await eng.dispose()

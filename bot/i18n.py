@@ -34,7 +34,7 @@ def get_i18n() -> I18n:
 @contextmanager
 def in_locale(locale: str | None) -> Iterator[None]:
     """Translate in a specific user's language outside of their own update
-    (e.g. notifying a client from an admin's action, or from the reminder task)."""
+    (e.g. notifying a client from an admin's action, or from the link-expiry task)."""
     i18n = get_i18n()
     with i18n.context(), i18n.use_locale(locale or i18n.default_locale):
         yield

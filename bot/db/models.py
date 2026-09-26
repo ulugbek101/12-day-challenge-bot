@@ -120,7 +120,6 @@ class InviteLink(Base):
     used_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     sent_to_user: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     send_error: Mapped[str | None] = mapped_column(String(512), nullable=True)
-    reminded_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     expired_notified_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
     client: Mapped["Client"] = relationship(back_populates="invite_links")

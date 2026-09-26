@@ -76,7 +76,6 @@ class Settings(BaseSettings):
     payment_page_url: str = Field(alias="PAYMENT_PAGE_URL")
     support_username: str = Field(default="", alias="SUPPORT_USERNAME")
     invite_link_ttl_hours: int = Field(default=24, alias="INVITE_LINK_TTL_HOURS")
-    reminder_before_expiry_hours: int = Field(default=6, alias="REMINDER_BEFORE_EXPIRY_HOURS")
 
     @property
     def admins(self) -> list[int]:
