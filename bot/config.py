@@ -6,6 +6,7 @@ Everything sensitive or environment-specific lives here and nowhere else
 from __future__ import annotations
 
 from functools import lru_cache
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from pydantic import Field, ValidationError, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -80,6 +81,15 @@ class Settings(BaseSettings):
     @property
     def admins(self) -> list[int]:
         return parse_admins(self.admins_raw)
+
+    @field_validator("tz")
+    @classmethod
+    def _validate_tz(cls, value: str) -> str:
+        try:
+            ZoneInfo(value)
+        except (ZoneInfoNotFoundError, ValueError) as exc:
+            raise ConfigError(f"TZ must be an IANA timezone like Asia/Tashkent, got {value!r}") from exc
+        return value
 
     @field_validator("default_language")
     @classmethod
