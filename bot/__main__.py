@@ -8,6 +8,7 @@ import sys
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramUnauthorizedError
 from aiogram.fsm.storage.base import BaseEventIsolation
 from aiogram.fsm.storage.memory import SimpleEventIsolation
 from aiogram.utils.i18n import I18n
@@ -82,8 +83,15 @@ async def main() -> None:
 
     # Long polling. Pending updates are kept: join requests made while the bot was
     # down must still be answered.
-    await bot.delete_webhook(drop_pending_updates=False)
-    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+    try:
+        await bot.delete_webhook(drop_pending_updates=False)
+        await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+    except TelegramUnauthorizedError:
+        logger.error("Telegram rejected BOT_TOKEN (401 Unauthorized). Check BOT_TOKEN in .env.")
+        raise SystemExit(1) from None
+    finally:
+        await bot.session.close()
+        await engine.dispose()
 
 
 if __name__ == "__main__":
