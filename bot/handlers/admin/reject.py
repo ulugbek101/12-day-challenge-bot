@@ -27,7 +27,7 @@ from bot.keyboards import admin as kb
 from bot.keyboards.callbacks import CardCb, RetryReasonCb
 from bot.keyboards.user import submit_again_keyboard
 from bot.services import panel, screens
-from bot.services.debounce import too_soon
+from bot.services.debounce import mark_success, succeeded_recently
 from bot.services.notifications import client_locale
 from bot.services.tg import describe_error, safe_delete, with_retry
 from bot.states import AdminInput
@@ -155,7 +155,8 @@ async def on_reason(message: Message, bot: Bot, session: AsyncSession, state: FS
 @router.callback_query(RetryReasonCb.filter())
 async def retry_reason(callback: CallbackQuery, callback_data: RetryReasonCb, bot: Bot, session: AsyncSession) -> None:
     await callback.answer()
-    if too_soon(("rr", callback_data.mid)):
+    key = ("rr", callback_data.mid)
+    if succeeded_recently(key):
         return
     client = await clients_repo.get_by_id(session, callback_data.cid)
     if client is None:
@@ -164,6 +165,8 @@ async def retry_reason(callback: CallbackQuery, callback_data: RetryReasonCb, bo
     name = latest.full_name if latest else str(client.telegram_id)
 
     error = await deliver_reason(bot, client, callback.message.chat.id, callback_data.mid)
+    if error is None:
+        mark_success(key)
     logger.info(
         "Admin action: retry rejection reason admin=%s client=%s ok=%s", callback.from_user.id, client.id, error is None
     )

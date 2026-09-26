@@ -18,7 +18,7 @@ from bot.db.repositories import submissions as submissions_repo
 from bot.handlers.admin.card import processed_by_notice, show_card
 from bot.keyboards.callbacks import CardCb
 from bot.services import invite_links, panel, screens
-from bot.services.debounce import too_soon
+from bot.services.debounce import mark_success, succeeded_recently, too_soon
 from bot.services.notifications import send_to_client
 from bot.services.timefmt import utcnow
 
@@ -96,10 +96,10 @@ async def approve(callback: CallbackQuery, callback_data: CardCb, bot: Bot, sess
 async def retry_generate(callback: CallbackQuery, callback_data: CardCb, bot: Bot, session: AsyncSession) -> None:
     """Approved client whose link could not be created earlier: create and send it now."""
     await callback.answer()
-    if too_soon(("rgen", callback_data.cid)):
-        return
     client = await clients_repo.get_by_id(session, callback_data.cid)
-    if client is None or client.status != ClientStatus.approved:
+    already_has_link = client is not None and await invite_repo.get_current_for_client(session, client.id)
+    if client is None or client.status != ClientStatus.approved or already_has_link:
+        # e.g. a double tap: the first tap already created (and sent) the link
         await show_card(callback, bot, session, callback_data)
         return
     logger.info("Admin action: retry link generation admin=%s client=%s", callback.from_user.id, client.id)
@@ -141,10 +141,13 @@ async def resend_link(callback: CallbackQuery, callback_data: CardCb, bot: Bot, 
         await callback.answer(_("There is no active link. Generate a new one first."), show_alert=True)
         return
     await callback.answer()
-    if too_soon(("rs", client.id)):
+    key = ("rs", invite.id)
+    if succeeded_recently(key):
         return
 
     error = await invite_links.deliver_link(bot, session, client=client, invite=invite)
+    if error is None:
+        mark_success(key)
     logger.info(
         "Admin action: resend link admin=%s client=%s link_id=%s ok=%s",
         callback.from_user.id, client.id, invite.id, error is None,
