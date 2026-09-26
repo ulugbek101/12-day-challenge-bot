@@ -58,7 +58,10 @@ class Settings(BaseSettings):
     )
 
     bot_token: str = Field(alias="BOT_TOKEN")
-    admins: list[int] = Field(alias="ADMINS")
+    # Kept as a plain str field (not list[int]) because pydantic-settings tries to
+    # JSON-decode "complex" env values before any validator runs, which breaks on a
+    # plain CSV string like "123,456". Parsing happens in the `admins` property below.
+    admins_raw: str = Field(alias="ADMINS")
     channel_id: int = Field(alias="CHANNEL_ID")
 
     db_host: str = Field(alias="DB_HOST")
@@ -75,12 +78,9 @@ class Settings(BaseSettings):
     invite_link_ttl_hours: int = Field(default=24, alias="INVITE_LINK_TTL_HOURS")
     reminder_before_expiry_hours: int = Field(default=6, alias="REMINDER_BEFORE_EXPIRY_HOURS")
 
-    @field_validator("admins", mode="before")
-    @classmethod
-    def _parse_admins(cls, value: object) -> list[int]:
-        if isinstance(value, list):
-            return value  # type: ignore[return-value]
-        return parse_admins(str(value))
+    @property
+    def admins(self) -> list[int]:
+        return parse_admins(self.admins_raw)
 
     @field_validator("default_language")
     @classmethod
@@ -98,13 +98,18 @@ class Settings(BaseSettings):
         )
 
 
-def load_settings() -> Settings:
+@lru_cache
+def get_settings() -> Settings:
+    """Build (and cache) the Settings singleton. Call this, don't instantiate Settings directly.
+
+    Deliberately not evaluated at import time: importing bot.config must not require a
+    live .env (tests, tooling). The one required fail-fast call site is bot/__main__.py,
+    which calls this before anything else happens, and also eagerly touches `.admins` so
+    a malformed ADMINS value aborts startup immediately rather than on first use.
+    """
     try:
-        return Settings()
-    except ConfigError:
-        raise
+        settings = Settings()
     except ValidationError as exc:
         raise ConfigError(f"Invalid configuration: {exc}") from exc
-
-
-settings = load_settings()
+    _ = settings.admins  # fail fast on a malformed ADMINS value too
+    return settings

@@ -177,14 +177,23 @@ async def set_review_result(
             reviewed_by_name=admin_name,
             reviewed_at=now,
         )
+        .execution_options(synchronize_session=False)
     )
     if result.rowcount == 0:
+        # Someone else got there first; make sure the caller sees *their* result.
+        await session.get(Submission, submission_id, populate_existing=True)
         return False
 
     client_status = (
         ClientStatus.approved if new_status == SubmissionStatus.approved else ClientStatus.rejected
     )
     await session.execute(
-        update(Client).where(Client.id == client_id).values(status=client_status, updated_at=now)
+        update(Client)
+        .where(Client.id == client_id)
+        .values(status=client_status, updated_at=now)
+        .execution_options(synchronize_session=False)
     )
+    # Bulk UPDATEs bypass the identity map; refresh any already-loaded objects.
+    await session.get(Submission, submission_id, populate_existing=True)
+    await session.get(Client, client_id, populate_existing=True)
     return True
