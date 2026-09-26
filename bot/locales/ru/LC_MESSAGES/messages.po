@@ -1,0 +1,524 @@
+# Russian translations for stylist-bot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the stylist-bot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: stylist-bot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-09-27 01:21+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || "
+"n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#, python-brace-format
+msgid "🎉 {name} joined the channel"
+msgstr "🎉 {name} вступил(а) в канал"
+
+msgid "👋 Welcome, admin!"
+msgstr "👋 Добро пожаловать, администратор!"
+
+msgid "👋 Welcome! Use the buttons below to submit your payment or change the language."
+msgstr "👋 Добро пожаловать! Используйте кнопки ниже, чтобы отправить оплату или сменить язык."
+
+msgid "✅ Language changed."
+msgstr "✅ Язык изменён."
+
+msgid "👋 Welcome! Here you can submit your payment to get access to the channel."
+msgstr ""
+"👋 Добро пожаловать! Здесь вы можете отправить подтверждение оплаты, чтобы получить доступ к "
+"каналу."
+
+msgid "⏳ Your payment has not been approved yet. Please wait — we'll notify you here."
+msgstr "⏳ Ваша оплата ещё не подтверждена. Пожалуйста, подождите — мы сообщим вам здесь."
+
+#, python-brace-format
+msgid "⚠️ Could not create the invite link: {error}"
+msgstr "⚠️ Не удалось создать ссылку-приглашение: {error}"
+
+msgid "There is no active link. Generate a new one first."
+msgstr "Активной ссылки нет. Сначала создайте новую."
+
+msgid "📤 The link was sent to the user."
+msgstr "📤 Ссылка отправлена пользователю."
+
+#, python-brace-format
+msgid "⚠️ Could not send the link: {error}"
+msgstr "⚠️ Не удалось отправить ссылку: {error}"
+
+#, python-brace-format
+msgid "ℹ️ Already processed by {admin}."
+msgstr "ℹ️ Уже обработано: {admin}."
+
+msgid "Client not found."
+msgstr "Клиент не найден."
+
+msgid ""
+"❌ Unfortunately, your payment was not accepted.\n"
+"\n"
+"Reason:"
+msgstr ""
+"❌ К сожалению, ваша оплата не принята.\n"
+"\n"
+"Причина:"
+
+#, python-brace-format
+msgid "✅ The reason was delivered to {name}."
+msgstr "✅ Причина доставлена: {name}."
+
+#, python-brace-format
+msgid "⚠️ Could not deliver the reason to {name}: {error}"
+msgstr "⚠️ Не удалось доставить причину ({name}): {error}"
+
+#, python-brace-format
+msgid "❌ {name} rejected."
+msgstr "❌ {name}: отклонено."
+
+msgid "⏳ Your payment is under review. We'll notify you here once it's checked."
+msgstr "⏳ Ваша оплата на проверке. Мы сообщим вам здесь, как только проверим."
+
+msgid "✅ You're already approved. Please use the personal invite link we sent you."
+msgstr "✅ Ваша оплата уже подтверждена. Воспользуйтесь персональной ссылкой, которую мы вам отправили."
+
+#, python-brace-format
+msgid "Need help? Contact @{support}"
+msgstr "Нужна помощь? Напишите @{support}"
+
+msgid ""
+"💳 <b>How to pay</b>\n"
+"\n"
+"1. Open the payment page below and pay by card transfer.\n"
+"2. Take a screenshot of the successful payment.\n"
+"3. Send the screenshot here as a photo or an image file 👇"
+msgstr ""
+"💳 <b>Как оплатить</b>\n"
+"\n"
+"1. Откройте страницу оплаты ниже и оплатите переводом на карту.\n"
+"2. Сделайте скриншот успешной оплаты.\n"
+"3. Отправьте скриншот сюда как фото или файл-изображение 👇"
+
+msgid "🌐 Choose your language:"
+msgstr "🌐 Выберите язык:"
+
+msgid "⚠️ Please send the payment screenshot as a photo or an image file."
+msgstr "⚠️ Пожалуйста, отправьте скриншот оплаты как фото или файл-изображение."
+
+msgid "✍️ Enter your full name (first and last name):"
+msgstr "✍️ Введите ваше полное имя (имя и фамилию):"
+
+msgid "⚠️ The name must be 2 to 100 characters long. Please try again:"
+msgstr "⚠️ Имя должно содержать от 2 до 100 символов. Попробуйте ещё раз:"
+
+msgid "⚠️ Please type your full name as text."
+msgstr "⚠️ Пожалуйста, введите полное имя текстом."
+
+msgid "📞 Send your phone number: tap “Share my contact” below, or type it, e.g. +998 90 123 45 67"
+msgstr ""
+"📞 Отправьте номер телефона: нажмите «Поделиться контактом» ниже или введите его, например +998 90"
+" 123 45 67"
+
+msgid "Or use the number from your previous attempt:"
+msgstr "Или используйте номер из предыдущей попытки:"
+
+msgid "⚠️ Please share your own contact using the button, or type your number."
+msgstr "⚠️ Пожалуйста, поделитесь своим контактом с помощью кнопки или введите номер."
+
+msgid "⚠️ Only Uzbekistan numbers are accepted. Please type a number like +998 90 123 45 67"
+msgstr "⚠️ Принимаются только номера Узбекистана. Введите номер в формате +998 90 123 45 67"
+
+msgid "⚠️ This doesn't look like an Uzbekistan phone number. Please send it like +998 90 123 45 67"
+msgstr "⚠️ Это не похоже на номер телефона Узбекистана. Отправьте его в формате +998 90 123 45 67"
+
+msgid "⚠️ Please share your contact or type your phone number."
+msgstr "⚠️ Пожалуйста, поделитесь контактом или введите номер телефона."
+
+msgid "📋 Please check your details:"
+msgstr "📋 Проверьте ваши данные:"
+
+#, python-brace-format
+msgid ""
+"<b>Your submission</b>\n"
+"\n"
+"👤 Full name: {name}\n"
+"📞 Phone: {phone}\n"
+"\n"
+"Is everything correct?"
+msgstr ""
+"<b>Ваша заявка</b>\n"
+"\n"
+"👤 Полное имя: {name}\n"
+"📞 Телефон: {phone}\n"
+"\n"
+"Всё верно?"
+
+msgid "✅ Sent for review"
+msgstr "✅ Отправлено на проверку"
+
+msgid "✅ Thank you! Your payment has been sent for review. We'll notify you here."
+msgstr "✅ Спасибо! Ваша оплата отправлена на проверку. Мы сообщим вам здесь."
+
+#, python-brace-format
+msgid "🆕 {name} — new payment to review"
+msgstr "🆕 {name} — новая оплата на проверку"
+
+msgid "🔄 Let's start over."
+msgstr "🔄 Начнём заново."
+
+msgid "❌ Submission cancelled."
+msgstr "❌ Отправка отменена."
+
+msgid "This form is no longer active."
+msgstr "Эта форма больше не активна."
+
+msgid "Please use the buttons under your submission: ✅ Send or 🔄 Start over."
+msgstr "Пожалуйста, используйте кнопки под заявкой: ✅ Отправить или 🔄 Начать заново."
+
+msgid "Please use the buttons below 👇"
+msgstr "Пожалуйста, используйте кнопки ниже 👇"
+
+msgid "⬅️ Back"
+msgstr "⬅️ Назад"
+
+#, python-brace-format
+msgid "⏳ Pending ({n})"
+msgstr "⏳ На проверке ({n})"
+
+#, python-brace-format
+msgid "✅ Approved ({n})"
+msgstr "✅ Одобренные ({n})"
+
+#, python-brace-format
+msgid "❌ Rejected ({n})"
+msgstr "❌ Отклонённые ({n})"
+
+msgid "🔍 Search"
+msgstr "🔍 Поиск"
+
+msgid "⚙️ Settings"
+msgstr "⚙️ Настройки"
+
+msgid "⬅️ Back to menu"
+msgstr "⬅️ В меню"
+
+msgid "🔍 Search again"
+msgstr "🔍 Искать снова"
+
+msgid "↩️ Cancel"
+msgstr "↩️ Отмена"
+
+#, python-brace-format
+msgid "📜 History ({n})"
+msgstr "📜 История ({n})"
+
+msgid "✅ Approve"
+msgstr "✅ Одобрить"
+
+msgid "❌ Reject"
+msgstr "❌ Отклонить"
+
+msgid "🔗 Generate new link"
+msgstr "🔗 Создать новую ссылку"
+
+msgid "📤 Resend link to user"
+msgstr "📤 Отправить ссылку повторно"
+
+msgid "🔁 Retry generating link"
+msgstr "🔁 Повторить создание ссылки"
+
+msgid "✅ I'm sure"
+msgstr "✅ Да, уверен(а)"
+
+msgid "⬅️ Back to card"
+msgstr "⬅️ К карточке"
+
+msgid "🔁 Retry sending to user"
+msgstr "🔁 Повторить отправку"
+
+msgid "👤 Open card"
+msgstr "👤 Открыть карточку"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "🔁 Retry sending"
+msgstr "🔁 Повторить отправку"
+
+msgid "💳 Submit payment"
+msgstr "💳 Отправить оплату"
+
+msgid "🗂 Admin panel"
+msgstr "🗂 Админ-панель"
+
+msgid "📱 Share my contact"
+msgstr "📱 Поделиться контактом"
+
+msgid "💳 Open payment page"
+msgstr "💳 Открыть страницу оплаты"
+
+msgid "❌ Cancel"
+msgstr "❌ Отмена"
+
+#, python-brace-format
+msgid "Use: {value}"
+msgstr "Использовать: {value}"
+
+msgid "✅ Send"
+msgstr "✅ Отправить"
+
+msgid "🔄 Start over"
+msgstr "🔄 Начать заново"
+
+msgid "🔄 Submit again"
+msgstr "🔄 Отправить снова"
+
+#, python-brace-format
+msgid "⌛ {name}'s link expired without joining"
+msgstr "⌛ Ссылка {name} истекла, вступления не было"
+
+#, python-brace-format
+msgid ""
+"🎉 Congratulations! Your payment has been approved.\n"
+"\n"
+"Here is your personal invite link. It works only for your Telegram account and is valid until "
+"{expires}:\n"
+"<pre>{link}</pre>\n"
+"Open it and tap “Request to join” — the bot will let you in automatically."
+msgstr ""
+"🎉 Поздравляем! Ваша оплата подтверждена.\n"
+"\n"
+"Вот ваша персональная ссылка-приглашение. Она работает только для вашего аккаунта Telegram и "
+"действует до {expires}:\n"
+"<pre>{link}</pre>\n"
+"Откройте её и нажмите «Подать заявку» — бот впустит вас автоматически."
+
+msgid "⏳ Pending review"
+msgstr "⏳ На проверке"
+
+msgid "✅ Approved"
+msgstr "✅ Одобрено"
+
+msgid "❌ Rejected"
+msgstr "❌ Отклонено"
+
+msgid "⏳ Not approved yet — the invite link could not be created"
+msgstr "⏳ Ещё не одобрен — не удалось создать ссылку-приглашение"
+
+msgid "— No submissions"
+msgstr "— Нет заявок"
+
+msgid "used ✅"
+msgstr "использована ✅"
+
+msgid "revoked 🚫"
+msgstr "отозвана 🚫"
+
+msgid "expired ⌛"
+msgstr "истекла ⌛"
+
+msgid "active 🟢"
+msgstr "активна 🟢"
+
+msgid ""
+"🗂 <b>Admin panel</b>\n"
+"\n"
+"Choose a section:"
+msgstr ""
+"🗂 <b>Админ-панель</b>\n"
+"\n"
+"Выберите раздел:"
+
+msgid ""
+"⚙️ <b>Settings</b>\n"
+"\n"
+"Choose your language:"
+msgstr ""
+"⚙️ <b>Настройки</b>\n"
+"\n"
+"Выберите язык:"
+
+msgid "⏳ <b>Pending payments</b>"
+msgstr "⏳ <b>Оплаты на проверке</b>"
+
+msgid "✅ <b>Approved clients</b>"
+msgstr "✅ <b>Одобренные клиенты</b>"
+
+msgid "❌ <b>Rejected clients</b>"
+msgstr "❌ <b>Отклонённые клиенты</b>"
+
+msgid "The list is empty."
+msgstr "Список пуст."
+
+#, python-brace-format
+msgid "page {page}/{pages}"
+msgstr "стр. {page}/{pages}"
+
+msgid ""
+"🔍 <b>Search</b>\n"
+"\n"
+"Send part of a name, a phone number (any format), an @username or an exact Telegram ID."
+msgstr ""
+"🔍 <b>Поиск</b>\n"
+"\n"
+"Отправьте часть имени, номер телефона (в любом формате), @username или точный Telegram ID."
+
+msgid "⚠️ Please send at least 2 characters."
+msgstr "⚠️ Отправьте не менее 2 символов."
+
+#, python-brace-format
+msgid "🔍 Results for “{query}”"
+msgstr "🔍 Результаты по «{query}»"
+
+msgid "Nothing found."
+msgstr "Ничего не найдено."
+
+#, python-brace-format
+msgid "👤 <b>{name}</b>"
+msgstr "👤 <b>{name}</b>"
+
+#, python-brace-format
+msgid "📞 Phone: {phone}"
+msgstr "📞 Телефон: {phone}"
+
+#, python-brace-format
+msgid "💬 Username: {username}"
+msgstr "💬 Username: {username}"
+
+#, python-brace-format
+msgid "🆔 Telegram ID: <code>{tid}</code>"
+msgstr "🆔 Telegram ID: <code>{tid}</code>"
+
+#, python-brace-format
+msgid "🕒 Submitted: {date}"
+msgstr "🕒 Отправлено: {date}"
+
+#, python-brace-format
+msgid "📌 Status: {status}"
+msgstr "📌 Статус: {status}"
+
+#, python-brace-format
+msgid "🔢 Attempts: {n}"
+msgstr "🔢 Попыток: {n}"
+
+msgid "yes ✅"
+msgstr "да ✅"
+
+#, python-brace-format
+msgid "no ❌ ({error})"
+msgstr "нет ❌ ({error})"
+
+msgid "not yet"
+msgstr "ещё нет"
+
+msgid "🔗 Invite link:"
+msgstr "🔗 Ссылка-приглашение:"
+
+#, python-brace-format
+msgid "⌛ Expires: {date}"
+msgstr "⌛ Истекает: {date}"
+
+#, python-brace-format
+msgid "📍 Link state: {state}"
+msgstr "📍 Состояние ссылки: {state}"
+
+#, python-brace-format
+msgid "📤 Delivered to user: {delivered}"
+msgstr "📤 Доставлена пользователю: {delivered}"
+
+#, python-brace-format
+msgid "🎉 Joined: {date}"
+msgstr "🎉 Вступил(а): {date}"
+
+#, python-brace-format
+msgid "{admin} at {date}"
+msgstr "{admin}, {date}"
+
+#, python-brace-format
+msgid "📜 <b>Attempt {k} of {n}</b>"
+msgstr "📜 <b>Попытка {k} из {n}</b>"
+
+#, python-brace-format
+msgid "🕒 Date: {date}"
+msgstr "🕒 Дата: {date}"
+
+#, python-brace-format
+msgid "👤 Full name: {name}"
+msgstr "👤 Полное имя: {name}"
+
+#, python-brace-format
+msgid "📌 Outcome: {status}"
+msgstr "📌 Результат: {status}"
+
+#, python-brace-format
+msgid "👮 Reviewed by: {reviewed}"
+msgstr "👮 Проверил(а): {reviewed}"
+
+#, python-brace-format
+msgid ""
+"❌ <b>Rejecting {name}</b>\n"
+"\n"
+"Send the reason as one message. Accepted formats:\n"
+"• text\n"
+"• photo (optionally with a caption)\n"
+"• file/document (optionally with a caption)\n"
+"• voice message recorded in Telegram\n"
+"\n"
+"The client will receive it without your name or profile."
+msgstr ""
+"❌ <b>Отклонение: {name}</b>\n"
+"\n"
+"Отправьте причину одним сообщением. Допустимые форматы:\n"
+"• текст\n"
+"• фото (можно с подписью)\n"
+"• файл/документ (можно с подписью)\n"
+"• голосовое сообщение, записанное в Telegram\n"
+"\n"
+"Клиент получит её без вашего имени и профиля."
+
+msgid "⚠️ This format is not accepted. Please send text, a photo, a file or a voice message."
+msgstr "⚠️ Этот формат не принимается. Отправьте текст, фото, файл или голосовое сообщение."
+
+#, python-brace-format
+msgid ""
+"✅ <b>{name}</b> approved.\n"
+"\n"
+"The link has been sent to the user. For safety, here is a copy you can forward if needed:\n"
+"{link}"
+msgstr ""
+"✅ <b>{name}</b>: одобрено.\n"
+"\n"
+"Ссылка отправлена пользователю. На всякий случай вот копия, которую при необходимости можно "
+"переслать:\n"
+"{link}"
+
+#, python-brace-format
+msgid ""
+"✅ <b>{name}</b> approved, but the link could NOT be delivered.\n"
+"\n"
+"Reason: {error}\n"
+"\n"
+"Link:\n"
+"{link}"
+msgstr ""
+"✅ <b>{name}</b>: одобрено, но ссылку НЕ удалось доставить.\n"
+"\n"
+"Причина: {error}\n"
+"\n"
+"Ссылка:\n"
+"{link}"
+
+#, python-brace-format
+msgid ""
+"⚠️ Bot setup problem: {problem}.\n"
+"Add the bot to the channel as an administrator with the “Invite users via link” right."
+msgstr ""
+"⚠️ Проблема настройки бота: {problem}.\n"
+"Добавьте бота в канал администратором с правом «Приглашение пользователей по ссылке»."
+

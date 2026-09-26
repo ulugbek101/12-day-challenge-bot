@@ -1,0 +1,521 @@
+# Uzbek translations for stylist-bot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the stylist-bot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: stylist-bot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-09-27 01:21+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#, python-brace-format
+msgid "🎉 {name} joined the channel"
+msgstr "🎉 {name} kanalga qo'shildi"
+
+msgid "👋 Welcome, admin!"
+msgstr "👋 Xush kelibsiz, administrator!"
+
+msgid "👋 Welcome! Use the buttons below to submit your payment or change the language."
+msgstr "👋 Xush kelibsiz! To'lovni yuborish yoki tilni o'zgartirish uchun quyidagi tugmalardan foydalaning."
+
+msgid "✅ Language changed."
+msgstr "✅ Til o'zgartirildi."
+
+msgid "👋 Welcome! Here you can submit your payment to get access to the channel."
+msgstr "👋 Xush kelibsiz! Bu yerda kanalga kirish uchun to'lovingizni tasdiqlab yuborishingiz mumkin."
+
+msgid "⏳ Your payment has not been approved yet. Please wait — we'll notify you here."
+msgstr "⏳ To'lovingiz hali tasdiqlanmadi. Iltimos, kuting — sizga shu yerda xabar beramiz."
+
+#, python-brace-format
+msgid "⚠️ Could not create the invite link: {error}"
+msgstr "⚠️ Taklif havolasini yaratib bo'lmadi: {error}"
+
+msgid "There is no active link. Generate a new one first."
+msgstr "Faol havola yo'q. Avval yangisini yarating."
+
+msgid "📤 The link was sent to the user."
+msgstr "📤 Havola foydalanuvchiga yuborildi."
+
+#, python-brace-format
+msgid "⚠️ Could not send the link: {error}"
+msgstr "⚠️ Havolani yuborib bo'lmadi: {error}"
+
+#, python-brace-format
+msgid "ℹ️ Already processed by {admin}."
+msgstr "ℹ️ Allaqachon ko'rib chiqilgan: {admin}."
+
+msgid "Client not found."
+msgstr "Mijoz topilmadi."
+
+msgid ""
+"❌ Unfortunately, your payment was not accepted.\n"
+"\n"
+"Reason:"
+msgstr ""
+"❌ Afsuski, to'lovingiz qabul qilinmadi.\n"
+"\n"
+"Sababi:"
+
+#, python-brace-format
+msgid "✅ The reason was delivered to {name}."
+msgstr "✅ Sabab yetkazildi: {name}."
+
+#, python-brace-format
+msgid "⚠️ Could not deliver the reason to {name}: {error}"
+msgstr "⚠️ Sababni yetkazib bo'lmadi ({name}): {error}"
+
+#, python-brace-format
+msgid "❌ {name} rejected."
+msgstr "❌ {name}: rad etildi."
+
+msgid "⏳ Your payment is under review. We'll notify you here once it's checked."
+msgstr "⏳ To'lovingiz tekshirilmoqda. Tekshirib bo'lgach, sizga shu yerda xabar beramiz."
+
+msgid "✅ You're already approved. Please use the personal invite link we sent you."
+msgstr "✅ To'lovingiz allaqachon tasdiqlangan. Sizga yuborilgan shaxsiy havoladan foydalaning."
+
+#, python-brace-format
+msgid "Need help? Contact @{support}"
+msgstr "Yordam kerakmi? @{support} ga yozing"
+
+msgid ""
+"💳 <b>How to pay</b>\n"
+"\n"
+"1. Open the payment page below and pay by card transfer.\n"
+"2. Take a screenshot of the successful payment.\n"
+"3. Send the screenshot here as a photo or an image file 👇"
+msgstr ""
+"💳 <b>Qanday to'lash kerak</b>\n"
+"\n"
+"1. Quyidagi to'lov sahifasini oching va kartaga o'tkazma orqali to'lang.\n"
+"2. Muvaffaqiyatli to'lov skrinshotini oling.\n"
+"3. Skrinshotni shu yerga rasm yoki rasm-fayl sifatida yuboring 👇"
+
+msgid "🌐 Choose your language:"
+msgstr "🌐 Tilni tanlang:"
+
+msgid "⚠️ Please send the payment screenshot as a photo or an image file."
+msgstr "⚠️ Iltimos, to'lov skrinshotini rasm yoki rasm-fayl sifatida yuboring."
+
+msgid "✍️ Enter your full name (first and last name):"
+msgstr "✍️ To'liq ismingizni kiriting (ism va familiya):"
+
+msgid "⚠️ The name must be 2 to 100 characters long. Please try again:"
+msgstr "⚠️ Ism 2 dan 100 tagacha belgidan iborat bo'lishi kerak. Qaytadan urinib ko'ring:"
+
+msgid "⚠️ Please type your full name as text."
+msgstr "⚠️ Iltimos, to'liq ismingizni matn ko'rinishida yozing."
+
+msgid "📞 Send your phone number: tap “Share my contact” below, or type it, e.g. +998 90 123 45 67"
+msgstr ""
+"📞 Telefon raqamingizni yuboring: quyidagi «Kontaktni ulashish» tugmasini bosing yoki yozing, "
+"masalan +998 90 123 45 67"
+
+msgid "Or use the number from your previous attempt:"
+msgstr "Yoki oldingi urinishdagi raqamdan foydalaning:"
+
+msgid "⚠️ Please share your own contact using the button, or type your number."
+msgstr "⚠️ Iltimos, tugma orqali o'z kontaktingizni ulashing yoki raqamni yozing."
+
+msgid "⚠️ Only Uzbekistan numbers are accepted. Please type a number like +998 90 123 45 67"
+msgstr "⚠️ Faqat O'zbekiston raqamlari qabul qilinadi. Raqamni +998 90 123 45 67 ko'rinishida yozing"
+
+msgid "⚠️ This doesn't look like an Uzbekistan phone number. Please send it like +998 90 123 45 67"
+msgstr "⚠️ Bu O'zbekiston telefon raqamiga o'xshamaydi. Uni +998 90 123 45 67 ko'rinishida yuboring"
+
+msgid "⚠️ Please share your contact or type your phone number."
+msgstr "⚠️ Iltimos, kontaktingizni ulashing yoki telefon raqamingizni yozing."
+
+msgid "📋 Please check your details:"
+msgstr "📋 Ma'lumotlaringizni tekshiring:"
+
+#, python-brace-format
+msgid ""
+"<b>Your submission</b>\n"
+"\n"
+"👤 Full name: {name}\n"
+"📞 Phone: {phone}\n"
+"\n"
+"Is everything correct?"
+msgstr ""
+"<b>Arizangiz</b>\n"
+"\n"
+"👤 To'liq ism: {name}\n"
+"📞 Telefon: {phone}\n"
+"\n"
+"Hammasi to'g'rimi?"
+
+msgid "✅ Sent for review"
+msgstr "✅ Tekshiruvga yuborildi"
+
+msgid "✅ Thank you! Your payment has been sent for review. We'll notify you here."
+msgstr "✅ Rahmat! To'lovingiz tekshiruvga yuborildi. Sizga shu yerda xabar beramiz."
+
+#, python-brace-format
+msgid "🆕 {name} — new payment to review"
+msgstr "🆕 {name} — tekshirish uchun yangi to'lov"
+
+msgid "🔄 Let's start over."
+msgstr "🔄 Qaytadan boshlaymiz."
+
+msgid "❌ Submission cancelled."
+msgstr "❌ Yuborish bekor qilindi."
+
+msgid "This form is no longer active."
+msgstr "Bu shakl endi faol emas."
+
+msgid "Please use the buttons under your submission: ✅ Send or 🔄 Start over."
+msgstr "Iltimos, ariza ostidagi tugmalardan foydalaning: ✅ Yuborish yoki 🔄 Qaytadan boshlash."
+
+msgid "Please use the buttons below 👇"
+msgstr "Iltimos, quyidagi tugmalardan foydalaning 👇"
+
+msgid "⬅️ Back"
+msgstr "⬅️ Orqaga"
+
+#, python-brace-format
+msgid "⏳ Pending ({n})"
+msgstr "⏳ Tekshiruvda ({n})"
+
+#, python-brace-format
+msgid "✅ Approved ({n})"
+msgstr "✅ Tasdiqlanganlar ({n})"
+
+#, python-brace-format
+msgid "❌ Rejected ({n})"
+msgstr "❌ Rad etilganlar ({n})"
+
+msgid "🔍 Search"
+msgstr "🔍 Qidiruv"
+
+msgid "⚙️ Settings"
+msgstr "⚙️ Sozlamalar"
+
+msgid "⬅️ Back to menu"
+msgstr "⬅️ Menyuga"
+
+msgid "🔍 Search again"
+msgstr "🔍 Qayta qidirish"
+
+msgid "↩️ Cancel"
+msgstr "↩️ Bekor qilish"
+
+#, python-brace-format
+msgid "📜 History ({n})"
+msgstr "📜 Tarix ({n})"
+
+msgid "✅ Approve"
+msgstr "✅ Tasdiqlash"
+
+msgid "❌ Reject"
+msgstr "❌ Rad etish"
+
+msgid "🔗 Generate new link"
+msgstr "🔗 Yangi havola yaratish"
+
+msgid "📤 Resend link to user"
+msgstr "📤 Havolani qayta yuborish"
+
+msgid "🔁 Retry generating link"
+msgstr "🔁 Havola yaratishni qaytarish"
+
+msgid "✅ I'm sure"
+msgstr "✅ Ha, aminman"
+
+msgid "⬅️ Back to card"
+msgstr "⬅️ Kartochkaga"
+
+msgid "🔁 Retry sending to user"
+msgstr "🔁 Qayta yuborish"
+
+msgid "👤 Open card"
+msgstr "👤 Kartochkani ochish"
+
+msgid "Open"
+msgstr "Ochish"
+
+msgid "🔁 Retry sending"
+msgstr "🔁 Qayta yuborish"
+
+msgid "💳 Submit payment"
+msgstr "💳 To'lovni yuborish"
+
+msgid "🗂 Admin panel"
+msgstr "🗂 Admin panel"
+
+msgid "📱 Share my contact"
+msgstr "📱 Kontaktni ulashish"
+
+msgid "💳 Open payment page"
+msgstr "💳 To'lov sahifasini ochish"
+
+msgid "❌ Cancel"
+msgstr "❌ Bekor qilish"
+
+#, python-brace-format
+msgid "Use: {value}"
+msgstr "Foydalanish: {value}"
+
+msgid "✅ Send"
+msgstr "✅ Yuborish"
+
+msgid "🔄 Start over"
+msgstr "🔄 Qaytadan boshlash"
+
+msgid "🔄 Submit again"
+msgstr "🔄 Qayta yuborish"
+
+#, python-brace-format
+msgid "⌛ {name}'s link expired without joining"
+msgstr "⌛ {name} havolasi muddati tugadi, kanalga qo'shilmadi"
+
+#, python-brace-format
+msgid ""
+"🎉 Congratulations! Your payment has been approved.\n"
+"\n"
+"Here is your personal invite link. It works only for your Telegram account and is valid until "
+"{expires}:\n"
+"<pre>{link}</pre>\n"
+"Open it and tap “Request to join” — the bot will let you in automatically."
+msgstr ""
+"🎉 Tabriklaymiz! To'lovingiz tasdiqlandi.\n"
+"\n"
+"Mana sizning shaxsiy taklif havolangiz. U faqat sizning Telegram akkauntingiz uchun ishlaydi va "
+"{expires} gacha amal qiladi:\n"
+"<pre>{link}</pre>\n"
+"Uni oching va «Qo'shilish so'rovi»ni bosing — bot sizni avtomatik qabul qiladi."
+
+msgid "⏳ Pending review"
+msgstr "⏳ Tekshiruvda"
+
+msgid "✅ Approved"
+msgstr "✅ Tasdiqlangan"
+
+msgid "❌ Rejected"
+msgstr "❌ Rad etilgan"
+
+msgid "⏳ Not approved yet — the invite link could not be created"
+msgstr "⏳ Hali tasdiqlanmagan — taklif havolasini yaratib bo'lmadi"
+
+msgid "— No submissions"
+msgstr "— Arizalar yo'q"
+
+msgid "used ✅"
+msgstr "ishlatilgan ✅"
+
+msgid "revoked 🚫"
+msgstr "bekor qilingan 🚫"
+
+msgid "expired ⌛"
+msgstr "muddati tugagan ⌛"
+
+msgid "active 🟢"
+msgstr "faol 🟢"
+
+msgid ""
+"🗂 <b>Admin panel</b>\n"
+"\n"
+"Choose a section:"
+msgstr ""
+"🗂 <b>Admin panel</b>\n"
+"\n"
+"Bo'limni tanlang:"
+
+msgid ""
+"⚙️ <b>Settings</b>\n"
+"\n"
+"Choose your language:"
+msgstr ""
+"⚙️ <b>Sozlamalar</b>\n"
+"\n"
+"Tilni tanlang:"
+
+msgid "⏳ <b>Pending payments</b>"
+msgstr "⏳ <b>Tekshiruvdagi to'lovlar</b>"
+
+msgid "✅ <b>Approved clients</b>"
+msgstr "✅ <b>Tasdiqlangan mijozlar</b>"
+
+msgid "❌ <b>Rejected clients</b>"
+msgstr "❌ <b>Rad etilgan mijozlar</b>"
+
+msgid "The list is empty."
+msgstr "Ro'yxat bo'sh."
+
+#, python-brace-format
+msgid "page {page}/{pages}"
+msgstr "{page}/{pages}-sahifa"
+
+msgid ""
+"🔍 <b>Search</b>\n"
+"\n"
+"Send part of a name, a phone number (any format), an @username or an exact Telegram ID."
+msgstr ""
+"🔍 <b>Qidiruv</b>\n"
+"\n"
+"Ismning bir qismi, telefon raqami (istalgan formatda), @username yoki aniq Telegram ID yuboring."
+
+msgid "⚠️ Please send at least 2 characters."
+msgstr "⚠️ Kamida 2 ta belgi yuboring."
+
+#, python-brace-format
+msgid "🔍 Results for “{query}”"
+msgstr "🔍 «{query}» bo'yicha natijalar"
+
+msgid "Nothing found."
+msgstr "Hech narsa topilmadi."
+
+#, python-brace-format
+msgid "👤 <b>{name}</b>"
+msgstr "👤 <b>{name}</b>"
+
+#, python-brace-format
+msgid "📞 Phone: {phone}"
+msgstr "📞 Telefon: {phone}"
+
+#, python-brace-format
+msgid "💬 Username: {username}"
+msgstr "💬 Username: {username}"
+
+#, python-brace-format
+msgid "🆔 Telegram ID: <code>{tid}</code>"
+msgstr "🆔 Telegram ID: <code>{tid}</code>"
+
+#, python-brace-format
+msgid "🕒 Submitted: {date}"
+msgstr "🕒 Yuborilgan: {date}"
+
+#, python-brace-format
+msgid "📌 Status: {status}"
+msgstr "📌 Holat: {status}"
+
+#, python-brace-format
+msgid "🔢 Attempts: {n}"
+msgstr "🔢 Urinishlar: {n}"
+
+msgid "yes ✅"
+msgstr "ha ✅"
+
+#, python-brace-format
+msgid "no ❌ ({error})"
+msgstr "yo'q ❌ ({error})"
+
+msgid "not yet"
+msgstr "hali yo'q"
+
+msgid "🔗 Invite link:"
+msgstr "🔗 Taklif havolasi:"
+
+#, python-brace-format
+msgid "⌛ Expires: {date}"
+msgstr "⌛ Amal qilish muddati: {date}"
+
+#, python-brace-format
+msgid "📍 Link state: {state}"
+msgstr "📍 Havola holati: {state}"
+
+#, python-brace-format
+msgid "📤 Delivered to user: {delivered}"
+msgstr "📤 Foydalanuvchiga yetkazildi: {delivered}"
+
+#, python-brace-format
+msgid "🎉 Joined: {date}"
+msgstr "🎉 Qo'shildi: {date}"
+
+#, python-brace-format
+msgid "{admin} at {date}"
+msgstr "{admin}, {date}"
+
+#, python-brace-format
+msgid "📜 <b>Attempt {k} of {n}</b>"
+msgstr "📜 <b>{n} tadan {k}-urinish</b>"
+
+#, python-brace-format
+msgid "🕒 Date: {date}"
+msgstr "🕒 Sana: {date}"
+
+#, python-brace-format
+msgid "👤 Full name: {name}"
+msgstr "👤 To'liq ism: {name}"
+
+#, python-brace-format
+msgid "📌 Outcome: {status}"
+msgstr "📌 Natija: {status}"
+
+#, python-brace-format
+msgid "👮 Reviewed by: {reviewed}"
+msgstr "👮 Tekshirgan: {reviewed}"
+
+#, python-brace-format
+msgid ""
+"❌ <b>Rejecting {name}</b>\n"
+"\n"
+"Send the reason as one message. Accepted formats:\n"
+"• text\n"
+"• photo (optionally with a caption)\n"
+"• file/document (optionally with a caption)\n"
+"• voice message recorded in Telegram\n"
+"\n"
+"The client will receive it without your name or profile."
+msgstr ""
+"❌ <b>Rad etish: {name}</b>\n"
+"\n"
+"Sababni bitta xabar bilan yuboring. Qabul qilinadigan formatlar:\n"
+"• matn\n"
+"• rasm (izoh bilan bo'lishi mumkin)\n"
+"• fayl/hujjat (izoh bilan bo'lishi mumkin)\n"
+"• Telegramda yozilgan ovozli xabar\n"
+"\n"
+"Mijoz uni sizning ismingiz va profilingizsiz oladi."
+
+msgid "⚠️ This format is not accepted. Please send text, a photo, a file or a voice message."
+msgstr "⚠️ Bu format qabul qilinmaydi. Matn, rasm, fayl yoki ovozli xabar yuboring."
+
+#, python-brace-format
+msgid ""
+"✅ <b>{name}</b> approved.\n"
+"\n"
+"The link has been sent to the user. For safety, here is a copy you can forward if needed:\n"
+"{link}"
+msgstr ""
+"✅ <b>{name}</b>: tasdiqlandi.\n"
+"\n"
+"Havola foydalanuvchiga yuborildi. Ehtiyot uchun, kerak bo'lsa yuborishingiz mumkin bo'lgan nusxa:"
+"\n"
+"{link}"
+
+#, python-brace-format
+msgid ""
+"✅ <b>{name}</b> approved, but the link could NOT be delivered.\n"
+"\n"
+"Reason: {error}\n"
+"\n"
+"Link:\n"
+"{link}"
+msgstr ""
+"✅ <b>{name}</b>: tasdiqlandi, lekin havolani yetkazib BO'LMADI.\n"
+"\n"
+"Sababi: {error}\n"
+"\n"
+"Havola:\n"
+"{link}"
+
+#, python-brace-format
+msgid ""
+"⚠️ Bot setup problem: {problem}.\n"
+"Add the bot to the channel as an administrator with the “Invite users via link” right."
+msgstr ""
+"⚠️ Bot sozlamasida muammo: {problem}.\n"
+"Botni kanalga «Havola orqali taklif qilish» huquqi bilan administrator qilib qo'shing."
+
