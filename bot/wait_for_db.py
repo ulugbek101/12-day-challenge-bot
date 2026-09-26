@@ -7,6 +7,7 @@ from __future__ import annotations
 import asyncio
 import sys
 import time
+from pathlib import Path
 
 from sqlalchemy import text
 
@@ -16,6 +17,13 @@ from bot.db.engine import create_engine
 
 async def wait(timeout: float) -> bool:
     settings = get_settings()
+    if Path("/.dockerenv").exists() and settings.db_host in ("127.0.0.1", "localhost"):
+        print(
+            f"Hint: DB_HOST={settings.db_host} points at this container itself. With the bundled "
+            "docker-compose MySQL use DB_HOST=mysql; for MySQL on the host use DB_HOST=host.docker.internal.",
+            file=sys.stderr,
+            flush=True,
+        )
     deadline = time.monotonic() + timeout
     attempt = 0
     while True:
