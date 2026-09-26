@@ -10,6 +10,8 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.base import BaseEventIsolation
 from aiogram.fsm.storage.memory import SimpleEventIsolation
+from aiogram.utils.i18n import I18n
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 from bot.config import ConfigError, get_settings
 from bot.db.engine import create_engine, create_session_factory
@@ -24,6 +26,22 @@ from bot.services import expiry
 from bot.services.startup import check_channel_rights, report_channel_problem
 
 logger = logging.getLogger("bot")
+
+
+def build_dispatcher(
+    session_factory: async_sessionmaker[AsyncSession], i18n: I18n, *, throttle_rate: float = 0.7
+) -> Dispatcher:
+    settings = get_settings()
+    # Per-user lock around each update: a double tap is processed strictly after the
+    # first tap has finished (and committed), never concurrently with it.
+    isolation: BaseEventIsolation = SimpleEventIsolation()
+    dp = Dispatcher(storage=MySQLStorage(session_factory), events_isolation=isolation)
+    dp.update.outer_middleware(DbSessionMiddleware(session_factory))
+    dp.update.outer_middleware(ClientMiddleware())
+    dp.update.outer_middleware(DbI18nMiddleware(i18n))
+    dp.message.outer_middleware(ThrottlingMiddleware(rate=throttle_rate, exempt=set(settings.admins)))
+    dp.include_router(setup_routers())
+    return dp
 
 
 async def main() -> None:
@@ -41,16 +59,7 @@ async def main() -> None:
     session_factory = create_session_factory(engine)
 
     bot = Bot(settings.bot_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-    # Per-user lock around each update: a double tap is processed strictly after the
-    # first tap has finished (and committed), never concurrently with it.
-    isolation: BaseEventIsolation = SimpleEventIsolation()
-    dp = Dispatcher(storage=MySQLStorage(session_factory), events_isolation=isolation)
-
-    dp.update.outer_middleware(DbSessionMiddleware(session_factory))
-    dp.update.outer_middleware(ClientMiddleware())
-    dp.update.outer_middleware(DbI18nMiddleware(i18n))
-    dp.message.outer_middleware(ThrottlingMiddleware(exempt=set(settings.admins)))
-    dp.include_router(setup_routers())
+    dp = build_dispatcher(session_factory, i18n)
 
     expiry_task: asyncio.Task[None] | None = None
 
