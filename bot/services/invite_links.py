@@ -97,15 +97,41 @@ async def deliver_link(bot: Bot, session: AsyncSession, *, client: Client, invit
 
     Returns None on success, or the delivery error (e.g. "bot was blocked by the user").
     """
-    tz = get_settings().tz
+    settings = get_settings()
+    tz = settings.tz
+    already_sent = (
+        await session.execute(
+            select(InviteLink.id).where(
+                InviteLink.client_id == client.id,
+                InviteLink.id != invite.id,
+                InviteLink.sent_to_user.is_(True),
+            ).limit(1)
+        )
+    ).first() is not None
+    channel_title = ""
+    if already_sent:
+        try:
+            channel_title = (await with_retry(lambda: bot.get_chat(settings.channel_id))).title or ""
+        except TelegramAPIError:
+            logger.warning("Could not fetch channel title for the re-sent link message")
 
     def build():  # noqa: ANN202
-        text = _(
-            "🎉 Congratulations! Your payment has been approved.\n\n"
-            "Here is your personal invite link. It works only for your Telegram account "
-            "and is valid until {expires}:\n<pre>{link}</pre>\n"
-            "Open it and tap “Request to join” — the bot will let you in automatically."
-        ).format(expires=to_display(invite.expires_at, tz), link=html.escape(invite.link))
+        expires = to_display(invite.expires_at, tz)
+        link = html.escape(invite.link)
+        if already_sent:
+            text = _(
+                "🔗 The admin has sent you a new link to join the private channel “{channel}”.\n\n"
+                "It works only for your Telegram account and is valid until {expires}. "
+                "The previous link no longer works:\n<pre>{link}</pre>\n"
+                "Open it and tap “Request to join” — the bot will let you in automatically."
+            ).format(channel=html.escape(channel_title or _("private")), expires=expires, link=link)
+        else:
+            text = _(
+                "🎉 Congratulations! Your payment has been approved.\n\n"
+                "Here is your personal invite link. It works only for your Telegram account "
+                "and is valid until {expires}:\n<pre>{link}</pre>\n"
+                "Open it and tap “Request to join” — the bot will let you in automatically."
+            ).format(expires=expires, link=link)
         return text, None
 
     error = await send_to_client(bot, client, build)

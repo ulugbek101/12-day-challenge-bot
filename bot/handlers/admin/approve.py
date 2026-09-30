@@ -109,27 +109,33 @@ async def retry_generate(callback: CallbackQuery, callback_data: CardCb, bot: Bo
 @router.callback_query(CardCb.filter(F.a == "gen"))
 async def generate_new_link(callback: CallbackQuery, callback_data: CardCb, bot: Bot, session: AsyncSession) -> None:
     """Replace the client's link (revoking the old one) and refresh the card in place.
-    No confirmation: the client is already approved. Delivery is a separate button."""
-    await callback.answer()
+    Delivery is a separate button; an alert tells the admin to press it."""
     client = await clients_repo.get_by_id(session, callback_data.cid)
     if client is None or client.status != ClientStatus.approved:
+        await callback.answer()
         await show_card(callback, bot, session, callback_data)
         return
 
     active = await invite_repo.get_active_for_client(session, client.id)
     if active is not None and utcnow() - active.created_at < FRESH_LINK_WINDOW:
+        await callback.answer()
         return  # double tap: the link was minted a moment ago
 
     try:
         await invite_links.create_link(bot, session, client=client, submission_id=callback_data.sid)
     except TelegramAPIError as exc:
         logger.exception("New link generation failed: client=%s admin=%s", client.id, callback.from_user.id)
+        await callback.answer()
         notice = _("⚠️ Could not create the invite link: {error}").format(
             error=html.escape(invite_links.link_generation_error(exc))
         )
         await show_card(callback, bot, session, callback_data, notice=notice)
         return
     logger.info("Admin action: new link admin=%s client=%s", callback.from_user.id, client.id)
+    await callback.answer(
+        _("✅ A new link was created for this client.\n\nIt has NOT been sent yet — press “📤 Resend link to user” to send it."),
+        show_alert=True,
+    )
     await show_card(callback, bot, session, callback_data)
 
 
@@ -140,9 +146,9 @@ async def resend_link(callback: CallbackQuery, callback_data: CardCb, bot: Bot, 
     if client is None or invite is None:
         await callback.answer(_("There is no active link. Generate a new one first."), show_alert=True)
         return
-    await callback.answer()
     key = ("rs", invite.id)
     if succeeded_recently(key):
+        await callback.answer()
         return
 
     error = await invite_links.deliver_link(bot, session, client=client, invite=invite)
@@ -153,7 +159,9 @@ async def resend_link(callback: CallbackQuery, callback_data: CardCb, bot: Bot, 
         callback.from_user.id, client.id, invite.id, error is None,
     )
     if error is None:
+        await callback.answer(_("✅ The new link has been sent to the client."), show_alert=True)
         notice = _("📤 The link was sent to the user.")
     else:
+        await callback.answer(_("⚠️ The link could not be sent to the client."), show_alert=True)
         notice = _("⚠️ Could not send the link: {error}").format(error=html.escape(error))
     await show_card(callback, bot, session, callback_data, notice=notice)

@@ -68,7 +68,7 @@ async def start_submission(bot: Bot, session: AsyncSession, client: Client, chat
             "💳 <b>How to pay</b>\n\n"
             "1. Open the payment page below and pay by card transfer.\n"
             "2. Take a screenshot of the successful payment.\n"
-            "3. Send the screenshot here as a photo or an image file 👇"
+            "3. Send the screenshot or receipt (photo, image file or PDF) here 👇"
         ),
         reply_markup=kb.payment_page_keyboard(settings.payment_page_url),
     )
@@ -101,15 +101,15 @@ async def on_screenshot_photo(message: Message, state: FSMContext) -> None:
 @router.message(SubmitForm.screenshot, F.document)
 async def on_screenshot_document(message: Message, state: FSMContext) -> None:
     mime = message.document.mime_type or ""
-    if not mime.startswith("image/") or message.animation is not None:
-        await message.answer(_("⚠️ Please send the payment screenshot as a photo or an image file."))
+    if not (mime.startswith("image/") or mime == "application/pdf") or message.animation is not None:
+        await message.answer(_("⚠️ Please send the payment screenshot or receipt as a photo, an image file or a PDF."))
         return
     await _accept_screenshot(message, state, message.document.file_id, ScreenshotKind.document)
 
 
 @router.message(SubmitForm.screenshot)
 async def on_screenshot_invalid(message: Message) -> None:
-    await message.answer(_("⚠️ Please send the payment screenshot as a photo or an image file."))
+    await message.answer(_("⚠️ Please send the payment screenshot or receipt as a photo, an image file or a PDF."))
 
 
 async def _accept_screenshot(message: Message, state: FSMContext, file_id: str, kind: ScreenshotKind) -> None:
