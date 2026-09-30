@@ -133,3 +133,5 @@ dmypy.json
 # Project-specific
 logs/
 *.db
+
+.DS_Store
