@@ -135,3 +135,10 @@ logs/
 *.db
 
 .DS_Store
+
+# Caches
+.ruff_cache/
+.pytype/
+cython_debug/
+.parcel-cache/
+.eslintcache
