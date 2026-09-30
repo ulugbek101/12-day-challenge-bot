@@ -24,7 +24,11 @@ RUN pybabel compile -d bot/locales -D messages \
  && mkdir -p /app/logs \
  && chown -R app:app /app
 
-COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+# chmod in a separate step (COPY --chmod needs BuildKit, which older servers lack);
+# also strips any Windows CRLF line endings that would break the shebang.
+RUN sed -i 's/\r$//' /usr/local/bin/docker-entrypoint.sh \
+ && chmod 755 /usr/local/bin/docker-entrypoint.sh
 
 # The entrypoint starts as root just long enough to fix ./logs ownership, then
 # drops to the "app" user (uid 10001) before running migrations and the bot.
